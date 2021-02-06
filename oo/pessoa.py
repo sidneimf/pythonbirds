@@ -1,3 +1,6 @@
+from builtins import print
+
+
 class Pessoa:
     def __init__(self, nome=None, idade=18, *filhos, ):
         self.idade = idade
@@ -22,4 +25,14 @@ if __name__ == '__main__':
     print(sidnei.nome, sidnei.idade)
     for filho in sidnei.filhos:
         print('filho',filho.nome, filho.idade)
+
+    sidnei.sobrenome = 'Francisco' #atribuição dinamica, autilizar apenas em casos esporádicos
+    print(sidnei.__dict__)
+    print(eliane.__dict__)
+
+    del sidnei.idade #não é uma boa pratica deletar atributos no código
+    print(sidnei.__dict__)
+    print(eliane.__dict__)
+
+
 
