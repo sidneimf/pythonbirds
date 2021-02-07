@@ -1,4 +1,4 @@
-from builtins import print
+from builtins import print, staticmethod
 
 
 class Pessoa:
@@ -10,6 +10,15 @@ class Pessoa:
 
     def cumprimentar(self):
         return f'Olá {id(self)}'
+
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
 
 if __name__ == '__main__':
     joao = Pessoa('Joao',13)
@@ -46,3 +55,7 @@ if __name__ == '__main__':
     print(id(Pessoa.olhos), id(eliane.olhos), id(sidnei.olhos))
     print(sidnei.__dict__)
     print(eliane.__dict__)
+
+    print(Pessoa.metodo_estatico(), eliane.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), eliane.nome_e_atributos_de_classe())
+
