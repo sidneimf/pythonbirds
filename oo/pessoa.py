@@ -19,13 +19,19 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls):
         return f'{cls} - olhos {cls.olhos}'
 
+class Homem(Pessoa):
+    pass
+
+class Mulher(Pessoa):
+    pass
+
 
 if __name__ == '__main__':
     joao = Pessoa('Joao',13)
-    eliane = Pessoa('Eliane',44, joao)
+    eliane = Mulher('Eliane',44, joao)
     michel = Pessoa('Michel',25)
     dayane = Pessoa('Dayane',22)
-    sidnei = Pessoa('Sidnei',50, michel,dayane)
+    sidnei = Homem('Sidnei',50, michel,dayane)
     print(Pessoa.cumprimentar(eliane))
     print(id(eliane))
     print(eliane.cumprimentar())
@@ -57,5 +63,7 @@ if __name__ == '__main__':
     print(eliane.__dict__)
 
     print(Pessoa.metodo_estatico(), eliane.metodo_estatico())
-    print(Pessoa.nome_e_atributos_de_classe(), eliane.nome_e_atributos_de_classe())
 
+    print(joao.nome,'está na classe pessoa =',isinstance(joao, Pessoa),'está na classe Homem =',isinstance(joao, Homem),'está na classe Mulher =',isinstance(joao, Mulher))
+    print(eliane.nome,'está na classe pessoa =',isinstance(eliane, Pessoa),'está na classe Homem =',isinstance(eliane, Homem),'está na classe Mulher =',isinstance(eliane, Mulher))
+    print(sidnei.nome,'está na classe pessoa =',isinstance(sidnei, Pessoa),'está na classe Homem =',isinstance(sidnei, Homem),'está na classe Mulher =',isinstance(sidnei, Mulher))
