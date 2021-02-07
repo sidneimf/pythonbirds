@@ -2,6 +2,7 @@ from builtins import print
 
 
 class Pessoa:
+    olhos = 2
     def __init__(self, nome=None, idade=18, *filhos, ):
         self.idade = idade
         self.nome = nome
@@ -34,5 +35,14 @@ if __name__ == '__main__':
     print(sidnei.__dict__)
     print(eliane.__dict__)
 
+    print(Pessoa.olhos, eliane.olhos, sidnei.olhos)
+    print(id(Pessoa.olhos), id(eliane.olhos), id(sidnei.olhos))
+    print(sidnei.__dict__)
+    print(eliane.__dict__)
 
+    sidnei.olhos = 4
 
+    print(Pessoa.olhos, eliane.olhos, sidnei.olhos)
+    print(id(Pessoa.olhos), id(eliane.olhos), id(sidnei.olhos))
+    print(sidnei.__dict__)
+    print(eliane.__dict__)
