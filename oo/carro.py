@@ -134,9 +134,6 @@ class Motor:
         return self.velocidade
 
 class Direcao:
-    #gira_direita = {'Norte':'Leste','Leste':'Sul','Sul':'Oeste','Oeste':'Norte'}
-    #gira_esquerda = {'Norte': 'Oeste', 'Oeste': 'Sul', 'Sul': 'Leste', 'Leste': 'Norte'}
-
     def __init__(self, valor='Norte'):
         self.valor = valor
         self.direcoes = ['Norte', 'Nordeste','Leste', 'Sudeste', 'Sul', 'Sudoeste', 'Oeste', 'Noroeste']
