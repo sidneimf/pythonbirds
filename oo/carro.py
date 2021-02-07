@@ -106,32 +106,17 @@ class Motor:
         return self.velocidade
 
 class Direcao:
+    gira_direita = {'Norte':'Leste','Leste':'Sul','Sul':'Oeste','Oeste':'Norte'}
+    gira_esquerda = {'Norte': 'Oeste', 'Oeste': 'Sul', 'Sul': 'Leste', 'Leste': 'Norte'}
+
     def __init__(self, valor='Norte'):
         self.valor = valor
 
     def girar_a_direita(self):
-        if self.valor == None:
-            self.valor = 'Norte'
-        elif self.valor == 'Norte':
-            self.valor = 'Leste'
-        elif self.valor == 'Leste':
-            self.valor = 'Sul'
-        elif self.valor == 'Sul':
-            self.valor = 'Oeste'
-        elif self.valor == 'Oeste':
-            self.valor = 'Norte'
+        self.valor = self.gira_direita[self.valor]
 
     def girar_a_esquerda(self):
-        if self.valor == None:
-            self.valor = 'Norte'
-        elif self.valor == 'Norte':
-            self.valor = 'Oeste'
-        elif self.valor == 'Oeste':
-            self.valor = 'Sul'
-        elif self.valor == 'Sul':
-            self.valor = 'Leste'
-        elif self.valor == 'Leste':
-            self.valor = 'Norte'
+        self.valor = self.gira_esquerda[self.valor]
 
     def valor(self ):
         return self.valor
