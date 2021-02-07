@@ -43,32 +43,56 @@ O   L
     >>> direcao.valor # ponto 15
     'Norte'
     >>> direcao.gira_direita # ponto 15b
-    {'Norte': 'Leste', 'Leste': 'Sul', 'Sul': 'Oeste', 'Oeste': 'Norte'}
+    {'Norte': 'Nordeste', 'Nordeste': 'Leste', 'Leste': 'Sudeste', 'Sudeste': 'Sul', 'Sul': 'Sudoeste', 'Sudoeste': 'Oeste', 'Oeste': 'Noroeste', 'Noroeste': 'Norte'}
     >>> direcao.gira_esquerda # ponto 15c
-    {'Leste': 'Norte', 'Sul': 'Leste', 'Oeste': 'Sul', 'Norte': 'Oeste'}
+    {'Nordeste': 'Norte', 'Leste': 'Nordeste', 'Sudeste': 'Leste', 'Sul': 'Sudeste', 'Sudoeste': 'Sul', 'Oeste': 'Sudoeste', 'Noroeste': 'Oeste', 'Norte': 'Noroeste'}
     >>> direcao.girar_a_direita() # ponto 16
     >>> direcao.valor # ponto 17
+    'Nordeste'
+    >>> direcao.girar_a_direita() # ponto 16b
+    >>> direcao.valor # ponto 17b
     'Leste'
     >>> direcao.girar_a_direita() # ponto 18
     >>> direcao.valor # ponto 19
+    'Sudeste'
+    >>> direcao.girar_a_direita() # ponto 18b
+    >>> direcao.valor # ponto 19b
     'Sul'
     >>> direcao.girar_a_direita() # ponto 20
     >>> direcao.valor # ponto 21
+    'Sudoeste'
+    >>> direcao.girar_a_direita() # ponto 20b
+    >>> direcao.valor # ponto 21b
     'Oeste'
     >>> direcao.girar_a_direita() # ponto 22
     >>> direcao.valor # ponto 23
+    'Noroeste'
+    >>> direcao.girar_a_direita() # ponto 22b
+    >>> direcao.valor # ponto 23b
     'Norte'
     >>> direcao.girar_a_esquerda() # ponto 24
     >>> direcao.valor # ponto 25
+    'Noroeste'
+    >>> direcao.girar_a_esquerda() # ponto 24b
+    >>> direcao.valor # ponto 25b
     'Oeste'
     >>> direcao.girar_a_esquerda() # ponto 25
     >>> direcao.valor # ponto 26
+    'Sudoeste'
+    >>> direcao.girar_a_esquerda() # ponto 25b
+    >>> direcao.valor # ponto 26b
     'Sul'
     >>> direcao.girar_a_esquerda() # ponto 27
     >>> direcao.valor # ponto 28
+    'Sudeste'
+    >>> direcao.girar_a_esquerda() # ponto 27b
+    >>> direcao.valor # ponto 28b
     'Leste'
     >>> direcao.girar_a_esquerda() # ponto 29
     >>> direcao.valor # ponto 30
+    'Nordeste'
+    >>> direcao.girar_a_esquerda() # ponto 29b
+    >>> direcao.valor # ponto 30b
     'Norte'
     >>> carro = Carro(direcao, motor) # ponto 31
     >>> carro.calcular_velocidade() # ponto 32
@@ -86,13 +110,13 @@ O   L
     'Norte'
     >>> carro.girar_a_direita() # ponto 40
     >>> carro.calcular_direcao() # ponto 41
-    'Leste'
+    'Nordeste'
     >>> carro.girar_a_esquerda() # ponto 42
     >>> carro.calcular_direcao() # ponto 43
     'Norte'
     >>> carro.girar_a_esquerda() # ponto 44
     >>> carro.calcular_direcao() # ponto 45
-    'Oeste'
+    'Noroeste'
 """
 class Motor:
     def __init__(self, velocidade=0):
@@ -115,7 +139,7 @@ class Direcao:
 
     def __init__(self, valor='Norte'):
         self.valor = valor
-        self.direcoes = ['Norte', 'Leste', 'Sul', 'Oeste']
+        self.direcoes = ['Norte', 'Nordeste','Leste', 'Sudeste', 'Sul', 'Sudoeste', 'Oeste', 'Noroeste']
 
         self.gira_direita = {}
         self.gira_esquerda = {}
