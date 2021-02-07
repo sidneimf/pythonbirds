@@ -42,6 +42,10 @@ O   L
     >>> direcao = Direcao() # ponto 14
     >>> direcao.valor # ponto 15
     'Norte'
+    >>> direcao.gira_direita # ponto 15b
+    {'Norte': 'Leste', 'Leste': 'Sul', 'Sul': 'Oeste', 'Oeste': 'Norte'}
+    >>> direcao.gira_esquerda # ponto 15c
+    {'Leste': 'Norte', 'Sul': 'Leste', 'Oeste': 'Sul', 'Norte': 'Oeste'}
     >>> direcao.girar_a_direita() # ponto 16
     >>> direcao.valor # ponto 17
     'Leste'
@@ -106,11 +110,28 @@ class Motor:
         return self.velocidade
 
 class Direcao:
-    gira_direita = {'Norte':'Leste','Leste':'Sul','Sul':'Oeste','Oeste':'Norte'}
-    gira_esquerda = {'Norte': 'Oeste', 'Oeste': 'Sul', 'Sul': 'Leste', 'Leste': 'Norte'}
+    #gira_direita = {'Norte':'Leste','Leste':'Sul','Sul':'Oeste','Oeste':'Norte'}
+    #gira_esquerda = {'Norte': 'Oeste', 'Oeste': 'Sul', 'Sul': 'Leste', 'Leste': 'Norte'}
 
     def __init__(self, valor='Norte'):
         self.valor = valor
+        self.direcoes = ['Norte', 'Leste', 'Sul', 'Oeste']
+
+        self.gira_direita = {}
+        self.gira_esquerda = {}
+        primeira = ''
+        anterior = ''
+        for sentido in self.direcoes:
+            if primeira == '':
+                primeira = sentido
+            else:
+                self.gira_direita[anterior] = sentido
+                self.gira_esquerda[sentido] = anterior
+
+            anterior = sentido
+        if primeira != '':
+            self.gira_direita[anterior] = primeira
+            self.gira_esquerda[primeira] = anterior
 
     def girar_a_direita(self):
         self.valor = self.gira_direita[self.valor]
