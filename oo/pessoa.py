@@ -28,6 +28,9 @@ class Homem(Pessoa):
 class Mulher(Pessoa):
     pass
 
+class Mutante(Pessoa):
+    olhos = 6
+
 
 if __name__ == '__main__':
     joao = Pessoa('Joao', 13)
@@ -73,3 +76,6 @@ if __name__ == '__main__':
           isinstance(eliane, Homem), 'está na classe Mulher =', isinstance(eliane, Mulher))
     print(sidnei.nome, 'está na classe pessoa =', isinstance(sidnei, Pessoa), 'está na classe Homem =',
           isinstance(sidnei, Homem), 'está na classe Mulher =', isinstance(sidnei, Mulher))
+
+    renzo = Mutante('Renzo', 36)
+    print(renzo.nome, 'olhos = ', renzo.olhos, 'idade =', renzo.idade)
