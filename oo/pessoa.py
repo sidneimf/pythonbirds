@@ -10,7 +10,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá {self.nome}'
 
     @staticmethod
     def metodo_estatico():
@@ -22,11 +22,15 @@ class Pessoa:
 
 
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai}. Aperto de mão'
 
 
 class Mulher(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai}. Beijos'
 
 class Mutante(Pessoa):
     olhos = 6
@@ -79,3 +83,7 @@ if __name__ == '__main__':
 
     renzo = Mutante('Renzo', 36)
     print(renzo.nome, 'olhos = ', renzo.olhos, 'idade =', renzo.idade)
+
+    print(joao.cumprimentar())
+    print(eliane.cumprimentar())
+    print(sidnei.cumprimentar())
