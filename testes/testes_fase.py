@@ -26,7 +26,7 @@ class AtorFake:
         self.status = ATIVO
         self.colidir_executado = False
         self.calcular_posicao_executado = False
-        self.intervalo_colisao = None
+        self.intervalo_colisao = 30
 
     def calcular_posicao(self, tempo):
         self.calcular_posicao_executado = True
@@ -52,6 +52,7 @@ class PassaroFake(AtorFake):
         super().__init__(x, y)
         self._lancado = False
         self.colidir_com_chao_executado = False
+        #self.intervalo_colisao = 30
 
     def foi_lancado(self):
         return self._lancado
