@@ -72,7 +72,22 @@ class Fase():
 
         :return:
         """
-        return EM_ANDAMENTO
+        qtdporcos = 0
+        qtdpassaros = 0
+        for porco in self._porcos:
+            if porco.status == ATIVO:
+                qtdporcos += 1
+
+        for passaro in self._passaros:
+            if passaro.status == ATIVO:
+                qtdpassaros += 1
+
+        if qtdporcos != 0 and qtdpassaros != 0:
+            return EM_ANDAMENTO
+        elif qtdporcos != 0 and qtdpassaros == 0:
+            return DERROTA
+        else:
+            return VITORIA
 
     def lancar(self, angulo, tempo):
         """
