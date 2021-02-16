@@ -52,7 +52,7 @@ class Ator:
         :param intervalo: Intervalo a ser considerado
         :return:
         """
-        if self.status == ATIVO and self.outro_ator == ATIVO:
+        if self.status == ATIVO and outro_ator.status == ATIVO:
             dx = abs(self.x - outro_ator.x)
             dy = abs(self.y - outro_ator.y)
             if dx <= intervalo and dy <= intervalo:
