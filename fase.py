@@ -74,7 +74,7 @@ class Fase():
         """
         if not self._possui_porco_ativo():
             return VITORIA
-        elif self._possui_passaro_ativo():
+        elif self._possui_passaros_ativo():
             return EM_ANDAMENTO
         else:
             return DERROTA
@@ -120,11 +120,11 @@ class Fase():
         for porco in self._porcos:
             if porco.status==ATIVO:
                 return True
-            return False
+        return False
 
-    def _possui_passaro_ativo(self):
+    def _possui_passaros_ativo(self):
         for passaros in self._passaros:
             if passaros.status == ATIVO:
                 return True
-            return False
+        return False
 
