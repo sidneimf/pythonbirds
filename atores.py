@@ -137,23 +137,19 @@ class Passaro(Ator):
         :param tempo_de_lancamento:
         :return:
         """
-        self._angulo_de_lancamento = angulo
+        self._angulo_de_lancamento = math.radians(angulo)
         self._tempo_de_lancamento = tempo_de_lancamento
 
     def _calcular_posicao_vertical(self, delta_t):
         y_atual = self._y_inicial
-        angulo_radianos = math.radians(self._angulo_de_lancamento)
-        y_atual += self.velocidade_escalar * delta_t * math.sin(angulo_radianos)
+        y_atual += self.velocidade_escalar * delta_t * math.sin(self._angulo_de_lancamento)
         y_atual -= (GRAVIDADE * (delta_t ** 2)) / 2
         self.y = y_atual
 
     def _calcular_posicao_horizontal(self, delta_t):
         x_atual = self._x_inicial
-        angulo_radianos = math.radians(self._angulo_de_lancamento)
-        x_atual += self.velocidade_escalar * delta_t * math.cos(angulo_radianos)
+        x_atual += self.velocidade_escalar * delta_t * math.cos(self._angulo_de_lancamento)
         self.x = x_atual
-
-        pass
 
     def _esta_voando(self):
         return self.foi_lancado() and self.status == ATIVO
